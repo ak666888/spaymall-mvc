@@ -8,6 +8,12 @@ server:
     accept-count: 10
 
 
+# 微信公众号对接
+weixin:
+  config:
+    originalid: wxa2ac9e73e0bc3eba
+    token: paradoxHub
+
 # 日志
 logging:
   level:
