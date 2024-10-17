@@ -35,7 +35,8 @@ public class SignatureUtil {
             throw new RuntimeException(e);
         }
         //4.将加密后的字符串和signature对比，标识请求来源于微信
-        return tempStr != null && tempStr.equals(signature);
+        logger.info("微信验签工具完成验签 {} 对比{}", tempStr, signature);
+        return tempStr != null && tempStr.equalsIgnoreCase(signature);
     }
 
     /**\

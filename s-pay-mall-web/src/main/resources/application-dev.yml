@@ -1,5 +1,5 @@
 server:
-  port: 8092
+  port: 8083
   tomcat:
     max-connections: 20
     threads:
@@ -19,3 +19,4 @@ logging:
   level:
     root: info
   config: classpath:logback-spring.xml
+
