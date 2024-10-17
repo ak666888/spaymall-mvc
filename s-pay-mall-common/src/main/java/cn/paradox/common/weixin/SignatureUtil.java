@@ -1,4 +1,4 @@
-package cn.paradox.common;
+package cn.paradox.common.weixin;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,4 +1,4 @@
-package cn.paradox.common;
+package cn.paradox.common.weixin;
 
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
@@ -18,7 +18,8 @@ public class WXTextMessageEntity {
     private String MsgId;
     @XStreamAlias("MsgDataId")
     private String MsgDataId;
-
+    @XStreamAlias("Event")
+    private String Event;
 
     public String getToUserName() {
         return ToUserName;

@@ -13,6 +13,9 @@ weixin:
   config:
     originalid: wxa2ac9e73e0bc3eba
     token: paradoxHub
+    app-id: 123
+    app-secret: 12
+    template_id: 12
 
 # 日志
 logging:

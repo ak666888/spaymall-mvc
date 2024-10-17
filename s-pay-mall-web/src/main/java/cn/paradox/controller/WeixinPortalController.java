@@ -1,9 +1,8 @@
 package cn.paradox.controller;
 
-import cn.paradox.common.SignatureUtil;
-import cn.paradox.common.WXTextMessageEntity;
-import cn.paradox.common.XmlUtil;
-import com.thoughtworks.xstream.XStream;
+import cn.paradox.common.weixin.SignatureUtil;
+import cn.paradox.common.weixin.WXTextMessageEntity;
+import cn.paradox.common.weixin.XmlUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
