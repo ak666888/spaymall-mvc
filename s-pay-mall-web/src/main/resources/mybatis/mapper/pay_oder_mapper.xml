@@ -17,12 +17,14 @@
         <result column="update_time" property="updateTime"/>
     </resultMap>
 
+
     <insert id="insert" parameterType="cn.paradox.domain.PO.PayOrder">
         insert into pay_order(user_id, product_id, product_name, order_id, order_time,
                               total_amount, status, create_time, update_time)
         values(#{userId}, #{productId}, #{productName}, #{orderId}, #{orderTime},
                #{totalAmount}, #{status}, now(), now())
     </insert>
+
 
     <select id="queryOrder" parameterType="cn.paradox.domain.PO.PayOrder" resultMap="dataMap">
         select product_id, product_name, order_id, order_time, total_amount, status, pay_url

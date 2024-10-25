@@ -2,6 +2,7 @@ package cn.paradox.service.impl;
 
 import cn.paradox.common.Contants.Constants;
 import cn.paradox.dao.IOrderDao;
+
 import cn.paradox.domain.PO.PayOrder;
 import cn.paradox.domain.Req.ShopCartReq;
 import cn.paradox.domain.Res.PayOrderRes;
@@ -10,11 +11,10 @@ import cn.paradox.service.IOrderService;
 import cn.paradox.service.rpc.ProductRPC;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomStringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Date;
 
 /**
  * 订单服务
@@ -23,12 +23,10 @@ import javax.annotation.Resource;
 @Service
 public class OrderServiceImpl implements IOrderService {
 
-
-    @Resource
-    private IOrderDao orderDao;
-
     @Resource
     private ProductRPC productRPC;
+    @Resource
+    private IOrderDao orderDao;
 
     @Override
     public PayOrderRes createOrder(ShopCartReq shopCartReq) {
@@ -58,6 +56,7 @@ public class OrderServiceImpl implements IOrderService {
                 .productId(shopCartReq.getProductId())
                 .productName(productVO.getProductName())
                 .orderId(orderId)
+                .orderTime(new Date())
                 .totalAmount(productVO.getPrice())
                 .status(Constants.OrderStatusEnum.CREATE.getCode())
                 .build();
