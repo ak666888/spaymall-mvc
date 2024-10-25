@@ -1,10 +1,9 @@
 package cn.paradox.service.weixin;
 
-import cn.paradox.domain.PO.WeixinTemplateMessageVO;
+import cn.paradox.domain.VO.WeixinTemplateMessageVO;
 import cn.paradox.domain.Req.WeixinQrCodeReq;
 import cn.paradox.domain.Res.WeiXinQRCodeRes;
 import cn.paradox.domain.Res.WeixinTokenRes;
-import lombok.Getter;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;

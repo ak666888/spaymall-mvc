@@ -1,4 +1,4 @@
-package cn.paradox.domain.PO;
+package cn.paradox.domain.VO;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,7 +15,7 @@ public class WeixinTemplateMessageVO {
     }
 
     public void put(TemplateKey key, String value) {
-        data.put(key.getCode(), new HashMap<>(){
+        data.put(key.getCode(), new HashMap<String,String>(){
             private static final long serialVersionUID = 7092338402387318563L;
 
             {
