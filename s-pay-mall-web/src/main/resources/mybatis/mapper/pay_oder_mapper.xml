@@ -19,9 +19,9 @@
 
 
     <insert id="insert" parameterType="cn.paradox.domain.PO.PayOrder">
-        insert into pay_order(user_id, product_id, product_name, order_id, order_time,
+        insert into pay_order(user_id, product_id, product_name, order_id,pay_url, order_time,
                               total_amount, status, create_time, update_time)
-        values(#{userId}, #{productId}, #{productName}, #{orderId}, #{orderTime},
+        values(#{userId}, #{productId}, #{productName}, #{orderId},#{payUrl}, #{orderTime},
                #{totalAmount}, #{status}, now(), now())
     </insert>
 
@@ -33,5 +33,11 @@
         order by id desc
             limit 1
     </select>
+
+    <update id="updateOrderPayInfo" parameterType="cn.paradox.domain.PO.PayOrder">
+        update pay_order
+        set status = #{status}, pay_url = #{payUrl}
+        where order_id = #{orderId}
+    </update>
 
 </mapper>
