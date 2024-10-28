@@ -134,7 +134,7 @@ public class OrderServiceImpl implements IOrderService {
         request.setReturnUrl(returnUrl);
 
         JSONObject bizContent = new JSONObject();
-        bizContent.put("out_trade_no", productId);
+        bizContent.put("out_trade_no", orderId);
         bizContent.put("total_amount", totalAmount);
         bizContent.put("subject", productName);
         bizContent.put("product_code", "FAST_INSTANT_TRADE_PAY");

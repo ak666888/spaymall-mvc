@@ -4,8 +4,11 @@ import cn.paradox.service.IOrderService;
 import com.alipay.api.AlipayApiException;
 import com.alipay.api.AlipayClient;
 import com.alipay.api.domain.AlipayTradePagePayModel;
+import com.alipay.api.domain.AlipayTradeQueryModel;
 import com.alipay.api.request.AlipayTradePagePayRequest;
+import com.alipay.api.request.AlipayTradeQueryRequest;
 import com.alipay.api.response.AlipayTradePagePayResponse;
+import com.alipay.api.response.AlipayTradeQueryResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -23,7 +26,7 @@ public class NoPayNotifyOrderJob {
     @Resource
     private AlipayClient alipayClient;
 
-    @Scheduled(cron = "0/3 * * * * ?")
+    @Scheduled(cron = "0/10 * * * * ?")
     public void exec(){
         try{
             log.info("任务：检测未收到或未正确的支付回调通知");
@@ -31,12 +34,12 @@ public class NoPayNotifyOrderJob {
             if(null == orderIds || orderIds.isEmpty()) return;
 
             for(String orderId : orderIds){
-                AlipayTradePagePayRequest alipayRequest = new AlipayTradePagePayRequest();
-                AlipayTradePagePayModel model = new AlipayTradePagePayModel();
+                AlipayTradeQueryRequest alipayRequest = new AlipayTradeQueryRequest();
+                AlipayTradeQueryModel model = new AlipayTradeQueryModel();
                 model.setOutTradeNo(orderId);
                 alipayRequest.setBizModel(model);
 
-                AlipayTradePagePayResponse alipayTradeQueryResponse = alipayClient.execute(alipayRequest);
+                AlipayTradeQueryResponse alipayTradeQueryResponse = alipayClient.execute(alipayRequest);
 
                 String code = alipayTradeQueryResponse.getCode();
 
