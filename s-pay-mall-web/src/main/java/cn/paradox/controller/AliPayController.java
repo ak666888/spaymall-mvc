@@ -97,6 +97,9 @@ public class AliPayController {
         log.info("支付回调，买家付款金额: {}", params.get("buyer_pay_amount"));
         log.info("支付回调，支付回调，更新订单 {}", tradeNo);
 
+        orderService.changeOrderPaySuccess(tradeNo);
+        // 更新用户账户，并发送消息进行后续操作
+
         return "success";
     }
 }
